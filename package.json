@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "davidbeijinho",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
@@ -53,6 +53,6 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "jest":{
-    "coverageDirectory": "./coverage"
+    "coverageDirectory": "coverage"
   }
 }

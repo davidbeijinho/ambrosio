@@ -1,6 +1,6 @@
 {
   "name": "ambrosio",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard",
   "main": "webpack.config.js",
   "scripts": {
@@ -8,12 +8,15 @@
     "dev": "webpack --mode development",
     "build": "npm run clean-dist && webpack --mode production",
     "lint": "eslint ./ || exit 0",
-    "lint:fix": "eslint ./ --fix|| exit 0",
+    "lint:fix": "eslint ./ --fix || exit 0",
     "test": "export NODE_ENV=test && jest",
-    "clean-dist": "rm -f -r -d dist"
+    "coverage": "export NODE_ENV=test && jest --coverage",
+    "coverage:send":"jest --coverage && cat ./coverage/lcov.info | codacy-coverage --token=7c776544861d415399a3961892322dc4 && npm run clean-coverage",
+    "clean-dist": "rm -f -r -d dist",
+    "clean-coverage": "rm -f -r -d coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "davidbeijinho",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
@@ -25,6 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "codacy-coverage": "^2.1.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.0",
     "file-loader": "^1.1.11",
@@ -47,5 +51,8 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0"
+  },
+  "jest":{
+    "coverageDirectory": "./coverage"
   }
 }

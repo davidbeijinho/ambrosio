@@ -1,3 +1,5 @@
+import trackersLib from '../lib/trackers';
+
 const defaultState = {
   trackers: [],
   fetched: false,
@@ -7,13 +9,15 @@ const defaultState = {
 const trackers = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_TRACKING':
-      return {
-        ...state,
-        trackers: state.trackers.map(tracker =>
-          (tracker.id === action.id
-            ? { ...tracker, count: tracker.count + 1 }
-            : tracker)),
-      };
+      trackersLib.addTracking(action.tracker);
+      // return {
+      //   ...state,
+      //   trackers: state.trackers.map(tracker =>
+      //     (tracker.id === action.id
+      //       ? { ...tracker, count: tracker.count + 1 }
+      //       : tracker)),
+      // };
+      return state;
     case 'LOAD_TRACKINGS':
       return {
         ...state,

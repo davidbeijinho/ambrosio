@@ -11,7 +11,7 @@
     "lint:fix": "eslint ./ --fix || exit 0",
     "test": "export NODE_ENV=test && jest",
     "coverage": "export NODE_ENV=test && jest --coverage",
-    "coverage:send":"jest --coverage && cat ./coverage/lcov.info | codacy-coverage --token=7c776544861d415399a3961892322dc4 && npm run clean-coverage",
+    "coverage:send": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage --token=7c776544861d415399a3961892322dc4 && npm run clean-coverage",
     "clean-dist": "rm -f -r -d dist",
     "clean-coverage": "rm -f -r -d coverage"
   },
@@ -35,6 +35,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
     "jest": "^22.4.2",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
@@ -52,7 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0"
   },
-  "jest":{
+  "jest": {
     "coverageDirectory": "coverage"
   }
 }

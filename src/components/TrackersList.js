@@ -1,15 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Tracker from '../components/Tracker';
+import trackersProp from '../propTypes/trackers';
 
-const TrackersList = (props) => {
-  console.log(props);
-  console.log((!props.trackers.trackers.length));
-  if (!props.trackers.trackers.length) {
+const TrackersList = ({ trackers, addTracking }) => {
+  if (!trackers.trackers.length) {
     return (<h1>No data</h1>);
   }
 
-  const trackersList = props.trackers.trackers.map(tracker => (
-    <Tracker key={tracker.id} {...tracker} />
+  const trackersList = trackers.trackers.map(tracker => (
+    <Tracker key={tracker.id} {...tracker} onClickHandler={() => addTracking(tracker.id)} />
   ));
 
   return (
@@ -21,4 +21,12 @@ const TrackersList = (props) => {
   );
 };
 
+TrackersList.propTypes = {
+  addTracking: PropTypes.func.isRequired,
+  trackers: PropTypes.shape({
+    trackers: PropTypes.arrayOf(PropTypes.shape(trackersProp)).isRequired,
+  }).isRequired,
+};
+
 export default TrackersList;
+

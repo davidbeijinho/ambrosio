@@ -10,14 +10,13 @@ const trackers = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_TRACKING':
       trackersLib.addTracking(action.tracker);
-      // return {
-      //   ...state,
-      //   trackers: state.trackers.map(tracker =>
-      //     (tracker.id === action.id
-      //       ? { ...tracker, count: tracker.count + 1 }
-      //       : tracker)),
-      // };
-      return state;
+      return {
+        ...state,
+        trackers: state.trackers.map(tracker =>
+          (tracker.id === action.tracker
+            ? { ...tracker, count: tracker.count + 1 }
+            : tracker)),
+      };
     case 'LOAD_TRACKINGS':
       return {
         ...state,

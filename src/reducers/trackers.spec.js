@@ -9,7 +9,7 @@ describe('trackers reducer', () => {
     });
   });
 
-  it('should handle ADD_TODO', () => {
+  it('should handle ADD_TRACKING', () => {
     expect(trackers(
       {
         trackers: [

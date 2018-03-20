@@ -3,9 +3,9 @@ export const addTracking = tracker => ({
   tracker,
 });
 
-export const errorAddTracking = tracker => ({
+export const errorAddTracking = error => ({
   type: 'ERROR_ADD_TRACKING',
-  tracker,
+  error,
 });
 
 export const updateTracker = tracker => ({

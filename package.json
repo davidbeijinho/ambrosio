@@ -59,6 +59,11 @@
     "webpack": "^4.1.1"
   },
   "jest": {
-    "coverageDirectory": "coverage"
+    "coverageDirectory": "coverage",
+    "globals": {
+      "__CONFIG__": {
+        "API_URL": "FAKE_API_URL"
+      }
+    }
   }
 }

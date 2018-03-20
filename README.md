@@ -5,6 +5,7 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 
 ###TODO 
 
+- [ ] make responsive menu work
 - [ ] Show info on active tracker ( name, id, totals )
 - [ ] Update tracker after tracking
 - [x] Add router to get inside a tracker

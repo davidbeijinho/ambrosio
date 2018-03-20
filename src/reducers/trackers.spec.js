@@ -190,5 +190,4 @@ describe('trackers reducer', () => {
       trackers: [],
     });
   });
-
 });

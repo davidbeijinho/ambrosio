@@ -15,7 +15,13 @@ const Tracker = (props) => {
   };
 
   return (
-    <div className="column is-4" onClick={navigate} onKeyPress={navigate} role="button" tabIndex={0} >
+    <div
+      className="column is-4"
+      onClick={navigate}
+      onKeyPress={navigate}
+      role="button"
+      tabIndex={0}
+    >
       <div className="box">
         <h3>Name: {props.name}</h3>
         <p>ID: {props.id}</p>

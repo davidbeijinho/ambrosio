@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Tracker from '../components/Tracker';
-import trackersProp from '../propTypes/trackers';
+import Tracker from '../Tracker/Tracker';
+import trackersProp from '../../propTypes/trackers';
 
 const TrackersList = ({ trackers, addTracking }) => {
   if (!trackers.trackers.length) {

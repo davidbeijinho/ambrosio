@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trackersProp from '../propTypes/trackers';
+import trackersProp from '../../propTypes/trackers';
 
 const Tracker = props => (
   <div className="column is-4">

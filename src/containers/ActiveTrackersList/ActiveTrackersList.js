@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import TrackersList from './../components/TrackersList';
-import { addTracking } from '../actions';
+import TrackersList from '../../components/TrackersList/TrackersList';
+import { addTracking } from '../../actions';
 
 const mapStateToProps = state => ({
   trackers: state.trackers,
@@ -13,3 +13,4 @@ const mapDispatchToProps = dispatch => ({
 const ActiveTrackersList = connect(mapStateToProps, mapDispatchToProps)(TrackersList);
 
 export default ActiveTrackersList;
+  

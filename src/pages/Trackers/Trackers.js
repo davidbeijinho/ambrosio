@@ -1,5 +1,5 @@
 import React from 'react';
-import ActiveTrackersList from '../containers/ActiveTrackersList';
+import ActiveTrackersList from '../../containers/ActiveTrackersList/ActiveTrackersList';
 
 const Trackers = () => (
   <div>

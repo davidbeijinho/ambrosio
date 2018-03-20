@@ -6,7 +6,7 @@ const Header = () => (
   <nav className="navbar is-primary">
     <div className="navbar-brand">
       <Link className="navbar-item" to="/">
-        <img src="imgs/logo.svg" alt="Ambrosio" className="logo" /> Ambrosio
+        <img src="/imgs/logo.svg" alt="Ambrosio" className="logo" /> Ambrosio
       </Link>
       <div className="navbar-burger burger" data-target="ambrosio-navbar">
         <span />

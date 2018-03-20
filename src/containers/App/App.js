@@ -14,9 +14,9 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/tracker/:id" component={TrackerPage} />
         <Route path="/trackers" component={Trackers} />
         <Route path="/settings" component={Settings} />
+        <Route path="/tracker/:id" component={TrackerPage} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

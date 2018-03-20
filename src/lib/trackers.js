@@ -1,29 +1,38 @@
 import axios from 'axios';
 import store from '../store';
-import { loadTrackings } from '../actions';
-// import { loadTrackings, addTracking } from '../actions';
+import * as trackersActions from '../actions';
 
 const trackers = {
   loadData() {
-    axios.get('http://localhost:3000/api/trackers')
+    axios.get(`${__CONFIG__.API_URL}/api/trackers`)
       .then((response) => {
-        console.log(response);
-        store.dispatch(loadTrackings(response.data));
+        store.dispatch(trackersActions.loadTrackers(response.data));
       })
       .catch((error) => {
         // TODO Add logger
-        console.log(error);
+        store.dispatch(trackersActions.errorLoadTrackers(error));
       });
   },
   addTracking(id) {
-    axios.post('http://localhost:3000/api/trackers/track', { id })
+    axios.post(`${__CONFIG__.API_URL}/api/trackers/track`, { id })
       .then((response) => {
-        console.log(response);
-        // store.dispatch(addTracking(response.data));
+        store.dispatch(trackersActions.updateTracker({ count: response.data.count, id }));
       })
       .catch((error) => {
         // TODO Add logger
-        console.log(error);
+        store.dispatch(trackersActions.errorAddTracking(error));
+      });
+  },
+  loadTrakings(id) {
+    axios.get(`${__CONFIG__.API_URL}/api/trackings`, {
+      params: { filter: { where: { tracker: { like: id } } } },
+    })
+      .then((response) => {
+        store.dispatch(trackersActions.loadTrackings(response.data));
+      })
+      .catch((error) => {
+        // TODO Add logger
+        store.dispatch(trackersActions.errorLoadTrackings(error));
       });
   },
 };

@@ -13,4 +13,3 @@ const mapDispatchToProps = dispatch => ({
 const ActiveTrackersList = connect(mapStateToProps, mapDispatchToProps)(TrackersList);
 
 export default ActiveTrackersList;
-  

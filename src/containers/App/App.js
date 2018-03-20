@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import Home from '../../pages/Home/Home';
 import Trackers from '../../pages/Trackers/Trackers';
 import Settings from '../../pages/Settings/Settings';
-import Tracker from '../../pages/Tracker/Tracker';
+import TrackerPage from '../../pages/TrackerPage/TrackerPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import Footer from '../../components/Footer/Footer';
 
@@ -14,7 +14,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/tracker/:id" component={Tracker} />
+        <Route path="/tracker/:id" component={TrackerPage} />
         <Route path="/trackers" component={Trackers} />
         <Route path="/settings" component={Settings} />
         <Route component={NotFound} />

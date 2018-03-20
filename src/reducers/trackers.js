@@ -2,6 +2,7 @@ import trackersLib from '../lib/trackers';
 
 const defaultState = {
   trackers: [],
+  activeTracker: {},
   fetched: false,
   loading: false,
 };

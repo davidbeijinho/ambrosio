@@ -22,7 +22,7 @@ describe('trackers reducer', () => {
       },
       {
         type: 'ADD_TRACKING',
-        id: 0,
+        tracker: 0,
       },
     )).toEqual({
       trackers: [
@@ -51,7 +51,7 @@ describe('trackers reducer', () => {
       },
       {
         type: 'ADD_TRACKING',
-        id: 1,
+        tracker: 1,
       },
     )).toEqual({
       trackers: [
@@ -90,7 +90,7 @@ describe('trackers reducer', () => {
       },
       {
         type: 'ADD_TRACKING',
-        id: 1,
+        tracker: 1,
       },
     )).toEqual({
       trackers: [

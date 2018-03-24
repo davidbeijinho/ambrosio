@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
 
 class Header extends React.Component {
@@ -36,8 +36,16 @@ class Header extends React.Component {
 
         <div id="ambrosio-navbar" className={`navbar-menu  ${this.state.open ? 'is-active' : ''}`}>
           <div className="navbar-start">
-            <Link onClick={this.toggleMenu} className="navbar-item" to="/trackers">Trackers</Link>
-            <Link onClick={this.toggleMenu} className="navbar-item" to="/settings">Settings</Link>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <span className="navbar-link">Trackers</span>
+
+              <div className="navbar-dropdown">
+                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/list">Trackers List</NavLink>
+                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/add">Add Tracker</NavLink>
+                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/settings" >Settings</NavLink>
+              </div>
+            </div>
+            <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/settings">Settings</NavLink>
           </div>
         </div>
       </nav>

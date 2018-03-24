@@ -5,6 +5,8 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 
 ###TODO 
 
+- [ ] Form to add new tracker
+- [x] Menu for trackers with submenu
 - [x] make responsive menu work
 - [ ] Show info on active tracker ( name, id, totals )
 - [ ] Update tracker after tracking
@@ -17,3 +19,4 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 - [ ] Show info in UI on error
 - [ ] Add to openshift
 - [ ] Split code webpack warning ( lazy loading )
+- [ ] add react redux

@@ -7,6 +7,8 @@ import Settings from '../../pages/Settings/Settings';
 import TrackerPage from '../../pages/TrackerPage/TrackerPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import Footer from '../../components/Footer/Footer';
+import AddTracker from '../../pages/AddTracker/AddTracker';
+import TrackersSettings from '../../pages/TrackersSettings/TrackersSettings';
 
 const App = () => (
   <BrowserRouter>
@@ -14,7 +16,9 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/trackers" component={Trackers} />
+        <Route path="/trackers/list" component={Trackers} />
+        <Route path="/trackers/add" component={AddTracker} />
+        <Route path="/trackers/settings" component={TrackersSettings} />
         <Route path="/settings" component={Settings} />
         <Route path="/tracker/:id" component={TrackerPage} />
         <Route component={NotFound} />

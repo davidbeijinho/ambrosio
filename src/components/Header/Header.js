@@ -40,9 +40,30 @@ class Header extends React.Component {
               <span className="navbar-link">Trackers</span>
 
               <div className="navbar-dropdown">
-                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/list">Trackers List</NavLink>
-                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/add">Add Tracker</NavLink>
-                <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/trackers/settings" >Settings</NavLink>
+                <NavLink
+                  onClick={this.toggleMenu}
+                  className="navbar-item"
+                  activeClassName="is-active"
+                  to="/trackers/list"
+                >
+                  Trackers List
+                </NavLink>
+                <NavLink
+                  onClick={this.toggleMenu}
+                  className="navbar-item"
+                  activeClassName="is-active"
+                  to="/trackers/add"
+                >
+                  Add Tracker
+                </NavLink>
+                <NavLink
+                  onClick={this.toggleMenu}
+                  className="navbar-item"
+                  activeClassName="is-active"
+                  to="/trackers/settings"
+                >
+                  Settings
+                </NavLink>
               </div>
             </div>
             <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/settings">Settings</NavLink>

@@ -10,7 +10,12 @@ const AddNewTracker = () => (
     <div className="field">
       <label className="label" htmlFor="name">Name
         <div className="control has-icons-right">
-          <input className="input is-success" type="text" placeholder="Tracker name input" id="name" />
+          <input
+            className="input is-success"
+            type="text"
+            placeholder="Tracker name input"
+            id="name"
+          />
           <span className="icon is-small is-right">
             <FontAwesomeIcon icon="check" />
           </span>

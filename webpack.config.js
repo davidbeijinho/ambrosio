@@ -62,7 +62,7 @@ module.exports = {
     historyApiFallback: true,
     watchContentBase: true,
     // port: PORT,
-    // host: HOST
+    host: '0.0.0.0',
   },
   plugins: [
     new HtmlWebPackPlugin({

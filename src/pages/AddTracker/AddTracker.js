@@ -1,10 +1,10 @@
 import React from 'react';
-import AddNewTracker from '../../components/AddNewTracker/AddNewTracker';
+import SubmitNewTracker from '../../containers/SubmitNewTracker/SubmitNewTracker';
 
 const AddTracker = () => (
   <div className="section">
     <h2 className="is-size-2">Add Tracker Page</h2>
-    <AddNewTracker />
+    <SubmitNewTracker />
   </div>
 );
 

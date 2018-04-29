@@ -41,3 +41,18 @@ export const loadTrackers = trackers => ({
   type: 'LOAD_TRACKERS',
   trackers,
 });
+
+export const addTracker = tracker => ({
+  type: 'START_ADD_TRACKER',
+  tracker,
+});
+
+export const errorAddTracker = error => ({
+  type: 'ERROR_ADD_TRACKER',
+  error,
+});
+
+export const sucessAddTracker = tracker => ({
+  type: 'SUCESS_ADD_TRACKER',
+  tracker,
+});

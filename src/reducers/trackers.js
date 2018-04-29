@@ -9,10 +9,17 @@ const defaultState = {
   },
   fetched: false,
   loading: false,
+  submitingNewTracker: false,
 };
 
 const trackers = (state = defaultState, action) => {
   switch (action.type) {
+    case 'START_ADD_TRACKER':
+      trackersLib.addTracker(action.tracker);
+      return {
+        ...state,
+        submitingNewTracker: true,
+      };
     case 'START_ADD_TRACKING':
       trackersLib.addTracking(action.tracker);
       return state;

@@ -1,13 +1,20 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import fontawesome from '@fortawesome/fontawesome';
 import { faCheck, faExclamationTriangle } from '@fortawesome/fontawesome-free-solid';
+import Loader from '../Loader/Loader';
 
 fontawesome.library.add(faCheck, faExclamationTriangle);
 
 class AddNewTracker extends React.Component {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('AAAAAA', nextProps, prevState);
+  }
+
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       name: '',
       description: '',
@@ -19,6 +26,11 @@ class AddNewTracker extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps, prevState) {
+    console.log('BBBBBB', nextProps, prevState);
+    // return nextProps;
+  }
+
   handleInputChange(event) {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
 
@@ -28,13 +40,16 @@ class AddNewTracker extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(`A name was submitted: ${this.state.name} ${this.state.description} ${this.state.geolocation}`);
     event.preventDefault();
+    this.props.addTracker({
+      name: this.state.name,
+      description: this.state.description,
+      geolocation: this.state.geolocation,
+    });
   }
 
   render() {
     return (
-
       <div className="columns is-mobile">
         <div className="column is-one-third-desktop is-half-tablet">
           <form onSubmit={this.handleSubmit}>
@@ -43,6 +58,7 @@ class AddNewTracker extends React.Component {
               <label className="label" htmlFor="name">Name
                 <div className="control has-icons-right">
                   <input
+                    required
                     className="input is-success"
                     type="text"
                     placeholder="Tracker name"
@@ -50,6 +66,7 @@ class AddNewTracker extends React.Component {
                     name="name"
                     value={this.state.name}
                     onChange={this.handleInputChange}
+                    disabled={this.props.submiting}
                   />
                   <span className="icon is-small is-right">
                     <FontAwesomeIcon icon="check" />
@@ -63,12 +80,14 @@ class AddNewTracker extends React.Component {
               <label className="label" htmlFor="description">Description
                 <div className="control has-icons-right">
                   <textarea
+                    required
                     className="textarea is-danger"
                     placeholder="Info about the new tracker"
                     id="description"
                     name="description"
                     value={this.state.description}
                     onChange={this.handleInputChange}
+                    disabled={this.props.submiting}
                   />
                   <span className="icon is-small is-right">
                     <FontAwesomeIcon icon="exclamation-triangle" />
@@ -87,7 +106,8 @@ class AddNewTracker extends React.Component {
                     name="geolocation"
                     id="geolocation"
                     checked={this.state.geolocation}
-                    onChange={this.handleInputChange  }
+                    onChange={this.handleInputChange}
+                    disabled={this.props.submiting}
                   />
                   Yes
                 </label>
@@ -97,9 +117,10 @@ class AddNewTracker extends React.Component {
 
             <div className="field">
               <div className="control">
-                <button className="button is-primary">Submit</button>
+                <button className="button is-primary" disabled={this.props.submiting} >Submit</button>
               </div>
             </div>
+            <Loader visible={this.props.submiting} />
 
           </form>
         </div>
@@ -107,5 +128,10 @@ class AddNewTracker extends React.Component {
     );
   }
 }
+
+AddNewTracker.propTypes = {
+  addTracker: PropTypes.func.isRequired,
+  submiting: PropTypes.bool.isRequired,
+};
 
 export default AddNewTracker;

@@ -35,6 +35,16 @@ const trackers = {
         store.dispatch(trackersActions.errorLoadTrackings(error));
       });
   },
+  addTracker(tracker) {
+    axios.post(`${__CONFIG__.API_URL}/api/trackers/`, tracker)
+      .then((response) => {
+        store.dispatch(trackersActions.sucessAddTracker(response.data));
+      })
+      .catch((error) => {
+        // TODO Add logger
+        store.dispatch(trackersActions.errorAddTracker(error));
+      });
+  },
 };
 
 export default trackers;

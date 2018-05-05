@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
+    "mockserver": "nodemon ./mockServer/server.js",
     "dev": "webpack --mode development",
     "build": "npm run clean-dist && webpack --mode production",
     "lint": "eslint ./ || exit 0",

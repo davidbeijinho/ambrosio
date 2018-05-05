@@ -10,8 +10,8 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 - [ ] Split to smaller components form to add new tracker
 - [x] Menu for trackers with submenu
 - [x] make responsive menu work
-- [ ] Show info on active tracker ( name, id, totals )
-- [ ] Update tracker after tracking
+- [x] Show info on active tracker ( name, id, totals )
+- [x] Update tracker after tracking
 - [x] Add router to get inside a tracker
 - [x] Load data for that tracker ( trackings )
 - [ ] Show updating while adding a tracking
@@ -26,7 +26,8 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 - [ ] Use consts and let
 - [ ] Use templates literal
 - [ ] Use arrow function
-- [ ] Use redux saga
+- [ ] Use redux saga ?????
+- [x] Use redux-thunk
 
 
 Sagas testing

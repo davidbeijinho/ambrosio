@@ -26,7 +26,8 @@ const trackers = {
   //   return {};
   // },
   loadTracker(id) {
-    return axios.get(`${__CONFIG__.API_URL}/api/trackers/${id}`);
+    // return axios.get(`${__CONFIG__.API_URL}/api/trackers/${id}`);
+    return axios.get('http://localhost:4000/');
     // .then(value => new Promise((resolve) => {
     //   setTimeout(() => {
     //     resolve(value);

@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import AddNewTracker from '../../components/AddNewTracker/AddNewTracker';
-import { addTracker } from '../../actions';
+import addTracker from '../../actions/addTracker';
 
 const mapStateToProps = state => ({
-  submiting: state.trackers.submitingNewTracker,
+  submiting: state.trackers.newTracker.sending,
+  newTracker: state.trackers.newTracker.tracker,
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTracker: id => dispatch(addTracker(id)),
+  addTracker: tracker => dispatch(addTracker(tracker)),
 });
 
 const SubmitNewTracker = connect(mapStateToProps, mapDispatchToProps)(AddNewTracker);

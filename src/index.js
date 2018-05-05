@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import App from './containers/App/App';
-import trackers from './lib/trackers';
+import App from './components/App/App';
 import './Index.scss';
-
-trackers.loadData();
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import AddTracker from '../../pages/AddTracker/AddTracker';
 import TrackersSettings from '../../pages/TrackersSettings/TrackersSettings';
 
-const App = () => (
+const Router = () => (
   <BrowserRouter>
     <div>
       <Header />
@@ -28,4 +28,4 @@ const App = () => (
   </BrowserRouter>
 );
 
-export default App;
+export default Router;

@@ -4,28 +4,31 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
 import TrackerInfo from '../../components/TrackerInfo/TrackerInfo';
-import { startLoadTrackings } from '../../actions';
 import trackingsProp from '../../propTypes/trackings';
+import trackersProp from '../../propTypes/trackers';
+
+import selectTracker from '../../actions/selectTracker';
+import loadTrackings from '../../actions/loadTrackings';
 
 class ActiveTracker extends React.Component {
   componentDidMount() {
-    this.props.dispatch(startLoadTrackings(this.props.match.params.id));
+    this.props.loadTrackings(this.props.match.params.id);
+    this.props.selectTracker(this.props.match.params.id);
   }
 
   render() {
     if (this.props.error) {
       return <div>Error! {this.props.error.message}</div>;
     }
-    if (this.props.loading || !this.props.trackings.length) {
+    if (this.props.loading) {
       return <div>Loading...</div>;
     }
 
-    return <TrackerInfo trackings={this.props.trackings} />;
+    return <TrackerInfo trackings={this.props.trackings} tracker={this.props.tracker} />;
   }
 }
 
 ActiveTracker.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
   match: PropTypes.shape({
@@ -37,12 +40,24 @@ ActiveTracker.propTypes = {
     PropTypes.arrayOf(trackingsProp),
     PropTypes.array,
   ]).isRequired,
+  loadTrackings: PropTypes.func.isRequired,
+  selectTracker: PropTypes.func.isRequired,
+  tracker: PropTypes.oneOfType([
+    PropTypes.shape(trackersProp),
+    PropTypes.shape(),
+  ]).isRequired,
 };
 
+const mapDispatchToProps = dispatch => ({
+  loadTrackings: id => dispatch(loadTrackings(id)),
+  selectTracker: id => dispatch(selectTracker(id)),
+});
+
 const mapStateToProps = state => ({
-  trackings: state.trackers.activeTracker.data,
+  trackings: state.trackers.activeTrackings.trackings,
+  tracker: state.trackers.activeTracker.tracker,
   loading: state.trackers.activeTracker.loading,
   error: state.trackers.activeTracker.error,
 });
 
-export default connect(mapStateToProps)(withRouter(ActiveTracker));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ActiveTracker));

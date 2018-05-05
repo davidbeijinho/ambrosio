@@ -6,11 +6,10 @@ import trackersProp from '../../propTypes/trackers';
 
 const TrackerInfo = props => (
   <div>
-    {/* {props.tracker.name ? */}
-      <h3>{props.tracker.name}</h3>
-    {/* : */}
-      {/* <h4>No tracker data</h4> */}
-    {/* } */}
+    <h3>Name: {props.tracker.name}</h3>
+    <h3>ID: {props.tracker.id}</h3>
+    <h3>Count: {props.tracker.count}</h3>
+    <h3>Location: {props.tracker.geolocation ? 'Yes' : ' No'}</h3>
     {props.trackings.length ?
       <TrackingList trackings={props.trackings} />
     :

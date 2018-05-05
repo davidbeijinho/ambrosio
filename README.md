@@ -5,7 +5,7 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 
 ###TODO 
 
-- [ ] Form to add new tracker
+- [x] Form to add new tracker
 - [ ] Error handler on form to add new tracker
 - [ ] Split to smaller components form to add new tracker
 - [x] Menu for trackers with submenu

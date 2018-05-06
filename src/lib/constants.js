@@ -1,11 +1,11 @@
 export const BASE_NAME_START = 'START';
-export const BASE_NAME_ERROR = 'ERROR';
 export const BASE_NAME_SUCCESS = 'SUCCESS';
+export const BASE_NAME_ERROR = 'ERROR';
 
 const generateActionNames = baseName => ({
   [BASE_NAME_START]: `${baseName}_${BASE_NAME_START}`,
-  [BASE_NAME_ERROR]: `${baseName}_${BASE_NAME_ERROR}`,
   [BASE_NAME_SUCCESS]: `${baseName}_${BASE_NAME_SUCCESS}`,
+  [BASE_NAME_ERROR]: `${baseName}_${BASE_NAME_ERROR}`,
 });
 
 export const LOAD_TRACKER = generateActionNames('LOAD_TRACKER');

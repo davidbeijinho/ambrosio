@@ -6,7 +6,8 @@ const TrackingList = props => (
   <div>
     {props.error ? <h4>Error Loading Tracker</h4> : ''}
     {props.loading ? <h4>Loading Tracker info</h4> : ''}
-    { !props.error && !props.loading ?
+    { !props.error && !props.loading && !props.trackings.length ? <h4>No Tracking data</h4> : ''}
+    { !props.error && !props.loading && props.trackings.length ?
       <table className="table">
         <thead>
           <tr>

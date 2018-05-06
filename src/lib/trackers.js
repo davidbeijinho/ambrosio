@@ -4,6 +4,9 @@ const trackers = {
   loadTrackers() {
     return axios.get(`${__CONFIG__.API_URL}/api/trackers`);
   },
+  deleteTracker(id) {
+    return axios.delete(`${__CONFIG__.API_URL}/api/trackers/${id}`);
+  },
   addTracking(id) {
     return axios.post(`${__CONFIG__.API_URL}/api/trackers/track`, { id });
   },

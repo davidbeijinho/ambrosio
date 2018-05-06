@@ -50,7 +50,7 @@ export const successLoadTracker = tracker => ({
 });
 
 // ADD TRACKER
-
+// TODO should i pass some info when start add tracker
 export const startAddTracker = () => ({
   type: constants.ADD_TRACKER.START,
 });
@@ -100,9 +100,9 @@ export const successUpdateTracker = tracker => ({
 
 // DELETE TRACKER
 
-export const startDelteTracker = tracker => ({
+export const startDelteTracker = id => ({
   type: constants.DELETE_TRACKER.START,
-  tracker,
+  id,
 });
 
 export const errorDelteTracker = error => ({
@@ -110,7 +110,7 @@ export const errorDelteTracker = error => ({
   error,
 });
 
-export const successDelteTracker = tracker => ({
+export const successDelteTracker = response => ({
   type: constants.DELETE_TRACKER.SUCCESS,
-  tracker,
+  response,
 });

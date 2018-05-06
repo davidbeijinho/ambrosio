@@ -6,7 +6,7 @@ const REPONSE_TYPE = 1;
 // 1 json
 
 const DELAYED = true;
-const DELAY_TIME = 6000;
+const DELAY_TIME = 10000;
 const TEXT_RESPONSE = 'HELLO WORLD';
 const JSON_RESPONSE = {
   name: 'New Tracker 001',

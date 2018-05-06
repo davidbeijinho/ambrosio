@@ -1,3 +1,5 @@
+import * as constants from '../lib/constants';
+
 const defaultState = {
   trackers: [],
   loading: false,
@@ -25,7 +27,7 @@ const defaultState = {
 
 const trackers = (state = defaultState, action) => {
   switch (action.type) {
-    case 'LOAD_TRACKER_START':
+    case constants.LOAD_TRACKER.START:
       return {
         ...state,
         activeTracker: {
@@ -34,7 +36,7 @@ const trackers = (state = defaultState, action) => {
           error: false,
         },
       };
-    case 'LOAD_TRACKER_ERROR':
+    case constants.LOAD_TRACKER.ERROR:
       return {
         ...state,
         activeTracker: {
@@ -43,7 +45,7 @@ const trackers = (state = defaultState, action) => {
           error: true,
         },
       };
-    case 'LOAD_TRACKER_SUCCESS':
+    case constants.LOAD_TRACKER.SUCCESS:
       return {
         ...state,
         activeTracker: {
@@ -54,7 +56,7 @@ const trackers = (state = defaultState, action) => {
           tracker: Object.assign({}, action.tracker),
         },
       };
-    case 'ADD_TRACKER_START':
+    case constants.ADD_TRACKER.START:
       return {
         ...state,
         newTracker: {
@@ -62,7 +64,7 @@ const trackers = (state = defaultState, action) => {
           sending: true,
         },
       };
-    case 'ADD_TRACKER_SUCCESS':
+    case constants.ADD_TRACKER.SUCCESS:
       return {
         ...state,
         newTracker: {
@@ -72,11 +74,11 @@ const trackers = (state = defaultState, action) => {
         },
         trackers: [...state.trackers, action.tracker],
       };
-    case 'ADD_TRACKER_ERROR':
+    case constants.ADD_TRACKER.ERROR:
       return state;
-    case 'ADD_TRACKING_START':
+    case constants.ADD_TRACKING.START:
       return state;
-    case 'ADD_TRACKING_SUCCESS':
+    case constants.ADD_TRACKING.SUCCESS:
       return {
         ...state,
         trackers: state.trackers.map(tracker =>
@@ -85,9 +87,9 @@ const trackers = (state = defaultState, action) => {
             : tracker)),
       };
       // TODO if active tracker add to trakings
-    case 'ADD_TRACKING_ERROR':
+    case constants.ADD_TRACKING.ERROR:
       return state;
-    case 'LOAD_TRACKINGS_START':
+    case constants.LOAD_TRACKINGS.START:
       return {
         ...state,
         activeTrackings: {
@@ -95,7 +97,7 @@ const trackers = (state = defaultState, action) => {
           loading: true,
         },
       };
-    case 'LOAD_TRACKINGS_SUCCESS':
+    case constants.LOAD_TRACKINGS.SUCCESS:
       return {
         ...state,
         activeTrackings: {
@@ -105,7 +107,7 @@ const trackers = (state = defaultState, action) => {
           trackings: action.trackings,
         },
       };
-    case 'LOAD_TRACKINGS_ERROR':
+    case constants.LOAD_TRACKINGS.ERROR:
       return {
         ...state,
         activeTrackings: {
@@ -114,14 +116,14 @@ const trackers = (state = defaultState, action) => {
           error: true,
         },
       };
-    case 'LOAD_TRACKERS_START':
+    case constants.LOAD_TRACKERS.START:
       return {
         ...state,
         loading: true,
         error: false,
         fetched: false,
       };
-    case 'LOAD_TRACKERS_SUCCESS':
+    case constants.LOAD_TRACKERS.SUCCESS:
       return {
         ...state,
         trackers: [...action.trackers],
@@ -129,7 +131,7 @@ const trackers = (state = defaultState, action) => {
         loading: false,
         error: false,
       };
-    case 'LOAD_TRACKERS_ERROR':
+    case constants.LOAD_TRACKERS.ERROR:
       return {
         ...state,
         loading: false,

@@ -5,7 +5,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import { faCheck, faExclamationTriangle } from '@fortawesome/fontawesome-free-solid';
 
 import store from './store';
-import App from './components/App/App';
+import App from './containers/App/App';
 import './Index.scss';
 
 fontawesome.library.add(faCheck, faExclamationTriangle);

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import trackersProp from '../../propTypes/trackers';
-import DeleteTracker from '../DeleteTracker/DeleteTracker';
 import ButtonSuccess from '../Buttons/ButtonSuccess';
+import DeleteTracker from '../../containers/DeleteTracker/DeleteTracker';
 
 const TrackerInfo = props => (
   <div>

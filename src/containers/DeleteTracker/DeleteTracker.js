@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import trackersProp from '../../propTypes/trackers';
 import deleteTrackerAction from '../../actions/deleteTracker';
-import ButtonDanger from '../Buttons/ButtonDanger';
-import ButtonGeneric from '../Buttons/ButtonGeneric';
+import Modal from '../../components/Modal/Modal';
+import ButtonDanger from '../../components/Buttons/ButtonDanger';
 
 class DeleteTracker extends React.Component {
   constructor(props) {
@@ -26,22 +26,16 @@ class DeleteTracker extends React.Component {
     return (
       <div>
         <ButtonDanger text="Delete" handleClick={() => this.toggleModal()} >Delete</ButtonDanger>
-        <div className={`modal  ${this.state.open ? 'is-active' : ''}`}>
-          <div className="modal-background" />
-          <div className="modal-card">
-            <header className="modal-card-head">
-              <p className="modal-card-title">Delete Tracker</p>
-              <button className="delete" aria-label="close" onClick={() => this.toggleModal()} />
-            </header>
-            <section className="modal-card-body">
-              <p>Do you want to delete the tracker {this.props.tracker.name}</p>
-            </section>
-            <footer className="modal-card-foot">
-              <ButtonDanger handleClick={() => this.confirmDelete()} >Delete</ButtonDanger>
-              <ButtonGeneric handleClick={() => this.toggleModal()} >Cancel</ButtonGeneric>
-            </footer>
-          </div>
-        </div>
+        <Modal
+          open={this.state.open}
+          handleConfirm={() => this.confirmDelete()}
+          handleCancel={() => this.toggleModal()}
+          handleClose={() => this.toggleModal()}
+          head="Delete Tracker"
+          confirmContent="Delete"
+          cancelContent="Cancel"
+        >{`Do you want to delete the tracker ${this.props.tracker.name}`}
+        </Modal>
       </div>
     );
   }

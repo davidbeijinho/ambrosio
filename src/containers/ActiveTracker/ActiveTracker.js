@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
-import TrackerInfo from '../../components/TrackerInfo/TrackerInfo';
+import TrackerHeader from '../../components/TrackerHeader/TrackerHeader';
 import TrackingList from '../../components/TrackingsList/TrackingsList';
 import trackingsProp from '../../propTypes/trackings';
 import trackersProp from '../../propTypes/trackers';
@@ -21,7 +21,7 @@ class ActiveTracker extends React.Component {
   render() {
     return (
       <div>
-        <TrackerInfo
+        <TrackerHeader
           loading={this.props.loadingTracker}
           error={this.props.errorTracker}
           tracker={this.props.tracker}

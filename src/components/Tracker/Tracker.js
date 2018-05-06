@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 
 import trackersProp from '../../propTypes/trackers';
 import ButtonSuccess from '../Buttons/ButtonSuccess';
+import TrackerInfo from '../TrackerInfo/TrackerInfo';
 
 const Tracker = (props) => {
   const handleClick = (e) => {
@@ -24,9 +25,7 @@ const Tracker = (props) => {
       tabIndex={0}
     >
       <div className="box">
-        <h3>Name: {props.name}</h3>
-        <p>ID: {props.id}</p>
-        <p>Counter: {props.count}</p>
+        <TrackerInfo tracker={props} />
         <ButtonSuccess handleClick={handleClick} >Track</ButtonSuccess>
       </div>
     </div>

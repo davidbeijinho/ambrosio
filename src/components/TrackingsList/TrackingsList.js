@@ -50,7 +50,8 @@ const TrackingList = props => (
           {renderTable(props.trackings, props.trackings[0].location)}
         </tbody>
       </table>
-    : ''}
+      : ''
+    }
   </div>
 );
 

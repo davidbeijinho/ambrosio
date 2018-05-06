@@ -19,7 +19,8 @@ const TrackerHeader = props => (
         >Add Tracking
         </ButtonSuccess>
       </div>
-    : ''}
+      : ''
+    }
   </div>
 );
 

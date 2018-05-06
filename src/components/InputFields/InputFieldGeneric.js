@@ -13,7 +13,7 @@ const InputFieldGeneric = props => (
           <span className="icon is-small is-right">
             <FontAwesomeIcon icon={validateFieldIcon(props.valid, props.validate)} />
           </span>
-        : ''
+          : ''
         }
       </div>
     </label>

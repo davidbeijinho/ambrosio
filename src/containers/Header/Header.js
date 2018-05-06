@@ -66,7 +66,13 @@ class Header extends React.Component {
                 </NavLink>
               </div>
             </div>
-            <NavLink onClick={this.toggleMenu} className="navbar-item" activeClassName="is-active" to="/settings">Settings</NavLink>
+            <NavLink
+              onClick={this.toggleMenu}
+              className="navbar-item"
+              activeClassName="is-active"
+              to="/settings"
+            >Settings
+            </NavLink>
           </div>
         </div>
       </nav>

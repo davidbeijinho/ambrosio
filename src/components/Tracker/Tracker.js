@@ -27,7 +27,7 @@ const Tracker = (props) => {
         <h3>Name: {props.name}</h3>
         <p>ID: {props.id}</p>
         <p>Counter: {props.count}</p>
-        <ButtonSuccess text="Track" handleClick={handleClick} />
+        <ButtonSuccess handleClick={handleClick} >Track</ButtonSuccess>
       </div>
     </div>
   );

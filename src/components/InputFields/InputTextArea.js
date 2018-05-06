@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { validateInputClass } from '../../lib/utils.fields';
 
 const InputTextArea = ({
-  disabled, value, onChange, placeHolder, id, name,
+  disabled, value, onChange, placeHolder, id, name, valid, validate,
 }) => (
   <textarea
     required
-    className="textarea is-success"
+    className={`textarea ${validateInputClass(valid, validate)}`}
     placeholder={placeHolder}
     id={id}
     name={name}
@@ -23,6 +24,8 @@ InputTextArea.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  valid: PropTypes.bool,
+  validate: PropTypes.bool,
 };
 
 InputTextArea.defaultProps = {
@@ -30,6 +33,8 @@ InputTextArea.defaultProps = {
   disabled: false,
   value: '',
   onChange: () => {},
+  valid: true,
+  validate: false,
 };
 
 export default InputTextArea;

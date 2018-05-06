@@ -25,7 +25,7 @@ class DeleteTracker extends React.Component {
   render() {
     return (
       <div>
-        <ButtonDanger text="Delete" handleClick={() => this.toggleModal()} />
+        <ButtonDanger text="Delete" handleClick={() => this.toggleModal()} >Delete</ButtonDanger>
         <div className={`modal  ${this.state.open ? 'is-active' : ''}`}>
           <div className="modal-background" />
           <div className="modal-card">
@@ -37,8 +37,8 @@ class DeleteTracker extends React.Component {
               <p>Do you want to delete the tracker {this.props.tracker.name}</p>
             </section>
             <footer className="modal-card-foot">
-              <ButtonDanger text="Delete" handleClick={() => this.confirmDelete()} />
-              <ButtonGeneric text="Cancel" handleClick={() => this.toggleModal()} />
+              <ButtonDanger handleClick={() => this.confirmDelete()} >Delete</ButtonDanger>
+              <ButtonGeneric handleClick={() => this.toggleModal()} >Cancel</ButtonGeneric>
             </footer>
           </div>
         </div>

@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { validateInputClass } from '../../lib/utils.fields';
 
 const InputGeneric = ({
-  disabled, value, onChange, placeHolder, id, name, type,
+  disabled, value, onChange, placeHolder, id, name, type, required, valid, validate,
 }) => (
   <input
-    required
-    className="input is-success"
+    required={required}
+    className={`input ${validateInputClass(valid, validate)}`}
     type={type}
     placeholder={placeHolder}
     id={id}
@@ -25,13 +26,19 @@ InputGeneric.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  required: PropTypes.bool,
+  valid: PropTypes.bool,
+  validate: PropTypes.bool,
 };
 
 InputGeneric.defaultProps = {
   placeHolder: '',
   disabled: false,
+  required: false,
   value: '',
   onChange: () => {},
+  valid: true,
+  validate: false,
 };
 
 export default InputGeneric;

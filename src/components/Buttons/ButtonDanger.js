@@ -3,12 +3,15 @@ import React from 'react';
 import ButtonGeneric from './ButtonGeneric';
 
 const ButtonDanger = props => (
-  <ButtonGeneric className="is-danger" {...props} />
+  <ButtonGeneric className="is-danger" {...props} >{props.children}</ButtonGeneric>
 );
 
 ButtonDanger.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]).isRequired,
   disabled: PropTypes.bool,
 };
 

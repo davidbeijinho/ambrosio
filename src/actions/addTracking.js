@@ -9,7 +9,8 @@ function sendTracking(id, location) {
     // TODO I CAN PASS OPTIONS https://developer.mozilla.org/es/docs/Web/API/PositionOptions
     return getLocation().then(position => trackersLib.addTrackingWithLocation(id, position.coords))
       .catch(err =>
-      // TODO ADD TO LOGER AND UI
+      // TODO ADD TO LOGGER
+      // TODO DISPATCH ERROR TO UI
         trackersLib.addTracking(id, err));
   }
   return trackersLib.addTracking(id);

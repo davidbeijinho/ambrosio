@@ -9,6 +9,7 @@ import InputFieldCheckBox from '../InputFields/InputFieldCheckBox';
 
 class AddNewTracker extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
+    // TODO on error ?
     if (prevState.submiting === true && nextProps.submiting === false) {
       nextProps.history.push(`/tracker/${nextProps.newTracker.id}`);
     }
@@ -89,7 +90,7 @@ class AddNewTracker extends React.Component {
 
             <div className="field">
               <div className="control">
-                <ButtonPrimary text="Submit" handleClick={this.handleSubmit} disabled={this.props.submiting} />
+                <ButtonPrimary handleClick={this.handleSubmit} disabled={this.props.submiting} >Submit</ButtonPrimary>
               </div>
             </div>
             <Loader visible={this.props.submiting} />

@@ -7,11 +7,12 @@ https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard
 
 - [x] Form to add new tracker
 - [ ] Error handler on form to add new tracker
-- [ ] Split to smaller components form to add new tracker
+- [x] Split to smaller components form to add new tracker
 - [x] Menu for trackers with submenu
 - [x] make responsive menu work
 - [x] Show info on active tracker ( name, id, totals )
-- [x] Update tracker after tracking
+- [x] Update tracker after tracking trackers list page
+- [ ] Update tracker after tracking tracker page
 - [x] Add router to get inside a tracker
 - [x] Load data for that tracker ( trackings )
 - [ ] Show updating while adding a tracking

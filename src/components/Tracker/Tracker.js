@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
 import trackersProp from '../../propTypes/trackers';
+import ButtonSuccess from '../Buttons/ButtonSuccess';
 
 const Tracker = (props) => {
   const handleClick = (e) => {
@@ -26,7 +27,7 @@ const Tracker = (props) => {
         <h3>Name: {props.name}</h3>
         <p>ID: {props.id}</p>
         <p>Counter: {props.count}</p>
-        <button onClick={handleClick}>Track</button>
+        <ButtonSuccess text="Track" handleClick={handleClick} />
       </div>
     </div>
   );

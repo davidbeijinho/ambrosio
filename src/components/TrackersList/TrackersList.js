@@ -9,7 +9,11 @@ const TrackersList = ({ trackers, addTracking }) => {
   }
 
   const trackersList = trackers.trackers.map(tracker => (
-    <Tracker key={tracker.id} {...tracker} onClickHandler={() => addTracking(tracker.id)} />
+    <Tracker
+      key={tracker.id}
+      {...tracker}
+      onClickHandler={() => addTracking(tracker.id, tracker.geolocation)}
+    />
   ));
 
   return (

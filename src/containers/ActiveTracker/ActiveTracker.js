@@ -10,6 +10,7 @@ import trackersProp from '../../propTypes/trackers';
 
 import loadTracker from '../../actions/loadTracker';
 import loadTrackings from '../../actions/loadTrackings';
+import addTracking from '../../actions/addTracking';
 
 class ActiveTracker extends React.Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class ActiveTracker extends React.Component {
           loading={this.props.loadingTracker}
           error={this.props.errorTracker}
           tracker={this.props.tracker}
+          addTracking={this.props.addTracking}
         />
         <TrackingList
           trackings={this.props.trackings}
@@ -36,6 +38,7 @@ class ActiveTracker extends React.Component {
 }
 
 ActiveTracker.propTypes = {
+  addTracking: PropTypes.func.isRequired,
   loadingTracker: PropTypes.bool.isRequired,
   loadingTrackings: PropTypes.bool.isRequired,
   errorTracker: PropTypes.bool.isRequired,
@@ -60,6 +63,7 @@ ActiveTracker.propTypes = {
 const mapDispatchToProps = dispatch => ({
   loadTrackings: id => dispatch(loadTrackings(id)),
   loadTracker: id => dispatch(loadTracker(id)),
+  addTracking: (id, location) => dispatch(addTracking(id, location)),
 });
 
 const mapStateToProps = state => ({

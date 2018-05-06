@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import trackersProp from '../../propTypes/trackers';
 import deleteTrackerAction from '../../actions/deleteTracker';
+import ButtonDanger from '../Buttons/ButtonDanger';
+import ButtonGeneric from '../Buttons/ButtonGeneric';
 
 class DeleteTracker extends React.Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class DeleteTracker extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.toggleModal()} className="button is-danger">Delete</button>
+        <ButtonDanger text="Delete" handleClick={() => this.toggleModal()} />
         <div className={`modal  ${this.state.open ? 'is-active' : ''}`}>
           <div className="modal-background" />
           <div className="modal-card">
@@ -35,8 +37,8 @@ class DeleteTracker extends React.Component {
               <p>Do you want to delete the tracker {this.props.tracker.name}</p>
             </section>
             <footer className="modal-card-foot">
-              <button onClick={() => this.confirmDelete()} className="button is-danger">Delete</button>
-              <button onClick={() => this.toggleModal()} className="button">Cancel</button>
+              <ButtonDanger text="Delete" handleClick={() => this.confirmDelete()} />
+              <ButtonGeneric text="Cancel" handleClick={() => this.toggleModal()} />
             </footer>
           </div>
         </div>

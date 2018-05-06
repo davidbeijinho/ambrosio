@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTracking: id => dispatch(addTracking(id)),
+  addTracking: (id, location) => dispatch(addTracking(id, location)),
 });
 
 const ActiveTrackersList = connect(mapStateToProps, mapDispatchToProps)(TrackersList);

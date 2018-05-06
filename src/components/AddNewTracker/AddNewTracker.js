@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import fontawesome from '@fortawesome/fontawesome';
-import { faCheck, faExclamationTriangle } from '@fortawesome/fontawesome-free-solid';
 import Loader from '../Loader/Loader';
-
-fontawesome.library.add(faCheck, faExclamationTriangle);
+import ButtonPrimary from '../Buttons/ButtonPrimary';
+import InputFieldText from '../InputFields/InputFieldText';
+import InputFieldTextArea from '../InputFields/InputFieldTextArea';
+import InputFieldCheckBox from '../InputFields/InputFieldCheckBox';
 
 class AddNewTracker extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -40,83 +39,57 @@ class AddNewTracker extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addTracker({
-      name: this.state.name,
-      description: this.state.description,
-      geolocation: this.state.geolocation,
-    });
+    if (this.state.name && this.state.description) {
+      this.props.addTracker({
+        name: this.state.name,
+        description: this.state.description,
+        geolocation: this.state.geolocation,
+      });
+    }
+    // TODO add error classes to fields
   }
 
   render() {
     return (
       <div className="columns is-mobile">
         <div className="column is-one-third-desktop is-half-tablet">
-          <form onSubmit={this.handleSubmit}>
+          <form >
+            <InputFieldText
+              help="The name of the new tracker"
+              label="Name"
+              id="name"
+              name="name"
+              placeHolder="Tracker name"
+              disabled={this.props.submiting}
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
 
-            <div className="field">
-              <label className="label" htmlFor="name">Name
-                <div className="control has-icons-right">
-                  <input
-                    required
-                    className="input is-success"
-                    type="text"
-                    placeholder="Tracker name"
-                    id="name"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                    disabled={this.props.submiting}
-                  />
-                  <span className="icon is-small is-right">
-                    <FontAwesomeIcon icon="check" />
-                  </span>
-                </div>
-              </label>
-              <p className="help">The name of the new tracker</p>
-            </div>
+            <InputFieldTextArea
+              help="Add some description of the tracker"
+              label="Description"
+              id="description"
+              name="description"
+              placeHolder="Info about the new tracker"
+              disabled={this.props.submiting}
+              value={this.state.description}
+              onChange={this.handleInputChange}
+            />
 
-            <div className="field">
-              <label className="label" htmlFor="description">Description
-                <div className="control has-icons-right">
-                  <textarea
-                    required
-                    className="textarea is-danger"
-                    placeholder="Info about the new tracker"
-                    id="description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.handleInputChange}
-                    disabled={this.props.submiting}
-                  />
-                  <span className="icon is-small is-right">
-                    <FontAwesomeIcon icon="exclamation-triangle" />
-                  </span>
-                </div>
-              </label>
-              <p className="help">Add some description of the tracker</p>
-            </div>
-
-            <div className="field">
-              <span className="label">Geolocation</span>
-              <div className="control" >
-                <label className="radio" htmlFor="geolocation">
-                  <input
-                    type="checkbox"
-                    name="geolocation"
-                    id="geolocation"
-                    checked={this.state.geolocation}
-                    onChange={this.handleInputChange}
-                    disabled={this.props.submiting}
-                  />
-                  Yes
-                </label>
-              </div>
-              <p className="help">Should tracking geolocation?</p>
-            </div>
+            <InputFieldCheckBox
+              help="Should track geolocation?"
+              label="Geolocation"
+              id="geolocation"
+              name="geolocation"
+              disabled={this.props.submiting}
+              checked={this.state.geolocation}
+              onChange={this.handleInputChange}
+              placeHolder="Yes"
+            />
 
             <div className="field">
               <div className="control">
-                <button className="button is-primary" disabled={this.props.submiting} >Submit</button>
+                <ButtonPrimary text="Submit" handleClick={this.handleSubmit} disabled={this.props.submiting} />
               </div>
             </div>
             <Loader visible={this.props.submiting} />

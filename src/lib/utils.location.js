@@ -1,10 +1,9 @@
-const getLocation = () => {
+const getLocation = options => new Promise(((resolve, reject) => {
   if (navigator.geolocation) {
-    return navigator.geolocation.getCurrentPosition(location => (location));
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  } else {
+    reject(new Error('Geolocation is not supported by this browser.'));
   }
-  return {
-    error: 'Geolocation is not supported by this browser.',
-  };
-};
+}));
 
 export default getLocation;

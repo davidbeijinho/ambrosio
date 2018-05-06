@@ -22,7 +22,6 @@ const Modal = props => (
   </div>
 );
 
-
 Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   head: PropTypes.oneOfType([

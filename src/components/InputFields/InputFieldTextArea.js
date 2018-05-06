@@ -1,41 +1,29 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import InputFieldGeneric from './InputFieldGeneric';
-import InputTextArea from './InputTextArea';
+import InputTextArea from '../Inputs/InputTextArea';
+import * as field from '../../propTypes/field';
+import * as inputFiled from '../../propTypes/inputFiled';
 
-const InputFieldTextArea = ({
-  help, label, disabled, value, onChange, placeHolder, id, name,
-}) => (
-  <InputFieldGeneric help={help} label={label} >
+const InputFieldTextArea = props => (
+  <InputFieldGeneric help={props.help} label={props.label} >
     <InputTextArea
-      disabled={disabled}
-      value={value}
-      onChange={onChange}
-      placeHolder={placeHolder}
-      id={id}
-      name={name}
+      disabled={props.disabled}
+      value={props.value}
+      onChange={props.onChange}
+      placeHolder={props.placeHolder}
+      id={props.id}
+      name={props.name}
     />
   </InputFieldGeneric>
 );
 
 InputFieldTextArea.propTypes = {
-  help: PropTypes.string,
-  label: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string,
-  disabled: PropTypes.bool,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  ...field.propTypes,
+  ...inputFiled.propTypes,
 };
-
 InputFieldTextArea.defaultProps = {
-  help: '',
-  label: '',
-  placeHolder: '',
-  disabled: false,
-  value: '',
-  onChange: () => {},
+  ...field.defaultProps,
+  ...inputFiled.defaultProps,
 };
 
 export default InputFieldTextArea;

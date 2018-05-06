@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AddNewTracker from '../../components/AddNewTracker/AddNewTracker';
+import AddNewTracker from '../../containers/AddNewTracker/AddNewTracker';
 import addTracker from '../../actions/addTracker';
 
 const mapStateToProps = state => ({

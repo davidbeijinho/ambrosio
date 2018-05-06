@@ -1,64 +1,39 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import InputFieldGeneric from './InputFieldGeneric';
-import InputGeneric from './InputGeneric';
+import InputCheckBox from '../Inputs/InputCheckBox';
+import * as field from '../../propTypes/field';
+import * as inputFiled from '../../propTypes/inputFiled';
 
-const InputFieldCheckBox = ({
-  help, label, disabled, value, onChange, placeHolder, id, name, checked,
-}) => (
+const InputFieldCheckBox = props => (
   <div className="field">
-    <span className="label">{label}</span>
+    <span className="label">{props.label}</span>
     <div className="control" >
-      <label className="radio" htmlFor={name}>
-        <input
+      <label className="radio" htmlFor={props.name}>
+        <InputCheckBox
           type="checkbox"
           className="radio"
-          name={name}
-          id={id}
-          checked={checked}
-          onChange={onChange}
-          disabled={disabled}
-          value={value}
+          name={props.name}
+          id={props.id}
+          checked={props.checked}
+          onChange={props.onChange}
+          disabled={props.disabled}
+          value={props.value}
         />
-        {placeHolder}
+        {props.placeHolder}
       </label>
     </div>
-    <p className="help">{help}</p>
+    <p className="help">{props.help}</p>
   </div>
-
-  // <InputFieldGeneric help={help} label={label} >
-  //   <InputGeneric
-  //     disabled={disabled}
-  //     value={value}
-  //     onChange={onChange}
-  //     placeHolder={placeHolder}
-  //     id={id}
-  //     name={name}
-  //     type="checkbox"
-  //     className="radio"
-  //   />
-  // </InputFieldGeneric>
 );
 
 InputFieldCheckBox.propTypes = {
-  help: PropTypes.string,
-  label: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string,
-  disabled: PropTypes.bool,
+  ...field.propTypes,
+  ...inputFiled.propTypes,
   checked: PropTypes.bool,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
 };
-
 InputFieldCheckBox.defaultProps = {
-  help: '',
-  label: '',
-  placeHolder: '',
-  disabled: false,
-  value: '',
-  onChange: () => {},
+  ...field.defaultProps,
+  ...inputFiled.defaultProps,
   checked: false,
 };
 

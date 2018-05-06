@@ -1,19 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import InputFieldGeneric from './InputFieldGeneric';
-import InputGeneric from './InputGeneric';
+import InputText from '../Inputs/InputText';
+import * as field from '../../propTypes/field';
+import * as inputFiled from '../../propTypes/inputFiled';
 
-const InputFieldText = ({
-  help, label, disabled, value, onChange, placeHolder, id, name,
-}) => (
-  <InputFieldGeneric help={help} label={label} >
-    <InputGeneric
-      disabled={disabled}
-      value={value}
-      onChange={onChange}
-      placeHolder={placeHolder}
-      id={id}
-      name={name}
+const InputFieldText = props => (
+  <InputFieldGeneric help={props.help} label={props.label} >
+    <InputText
+      disabled={props.disabled}
+      value={props.value}
+      onChange={props.onChange}
+      placeHolder={props.placeHolder}
+      id={props.id}
+      name={props.name}
       type="text"
       className="input"
     />
@@ -21,23 +20,12 @@ const InputFieldText = ({
 );
 
 InputFieldText.propTypes = {
-  help: PropTypes.string,
-  label: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string,
-  disabled: PropTypes.bool,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  ...field.propTypes,
+  ...inputFiled.propTypes,
 };
-
 InputFieldText.defaultProps = {
-  help: '',
-  label: '',
-  placeHolder: '',
-  disabled: false,
-  value: '',
-  onChange: () => {},
+  ...field.defaultProps,
+  ...inputFiled.defaultProps,
 };
 
 export default InputFieldText;

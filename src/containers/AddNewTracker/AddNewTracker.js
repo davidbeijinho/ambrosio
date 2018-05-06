@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router';
-import Loader from '../Loader/Loader';
-import ButtonPrimary from '../Buttons/ButtonPrimary';
-import InputFieldText from '../InputFields/InputFieldText';
-import InputFieldTextArea from '../InputFields/InputFieldTextArea';
-import InputFieldCheckBox from '../InputFields/InputFieldCheckBox';
+import Loader from '../../components/Loader/Loader';
+import ButtonPrimary from '../../components/Buttons/ButtonPrimary';
+import InputFieldText from '../../components/InputFields/InputFieldText';
+import InputFieldTextArea from '../../components/InputFields/InputFieldTextArea';
+import InputFieldCheckBox from '../../components/InputFields/InputFieldCheckBox';
 
 class AddNewTracker extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {

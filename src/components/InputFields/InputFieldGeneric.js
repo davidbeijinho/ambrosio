@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { validateFieldIcon } from '../../lib/utils.fields';
+import { propTypes, defaultProps } from '../../propTypes/field';
 
 const InputFieldGeneric = props => (
   <div className="field">
@@ -21,18 +22,9 @@ const InputFieldGeneric = props => (
 );
 
 InputFieldGeneric.propTypes = {
-  help: PropTypes.string,
-  label: PropTypes.string,
+  ...propTypes,
   children: PropTypes.element.isRequired,
-  valid: PropTypes.bool,
-  validate: PropTypes.bool,
 };
-
-InputFieldGeneric.defaultProps = {
-  help: '',
-  label: '',
-  valid: true,
-  validate: false,
-};
+InputFieldGeneric.defaultProps = defaultProps;
 
 export default InputFieldGeneric;

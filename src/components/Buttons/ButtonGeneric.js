@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { propTypes, defaultProps } from '../../propTypes/button';
 
 const ButtonGeneric = ({
   handleClick, disabled, className, children,
@@ -8,17 +9,12 @@ const ButtonGeneric = ({
 );
 
 ButtonGeneric.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
-  ]).isRequired,
+  ...propTypes,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
 };
 
 ButtonGeneric.defaultProps = {
-  disabled: false,
+  ...defaultProps,
   className: '',
 };
 

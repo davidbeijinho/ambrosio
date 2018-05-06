@@ -1,6 +1,6 @@
 {
   "name": "ambrosio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "https://app.codacy.com/app/davidbeijinho/ambrosio/dashboard",
   "main": "webpack.config.js",
   "scripts": {

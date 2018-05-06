@@ -3,7 +3,7 @@ import { startLoadTracker, successLoadTracker, errorLoadTracker } from './index'
 
 // TODO LOGGER ERROR
 
-function selectTracker(id) {
+function loadTracker(id) {
   return (dispatch, getState) => {
     dispatch(startLoadTracker(id));
     const selectedTracker = getState().trackers.trackers.find(tracker => tracker.id === id);
@@ -17,4 +17,4 @@ function selectTracker(id) {
   };
 }
 
-export default selectTracker;
+export default loadTracker;

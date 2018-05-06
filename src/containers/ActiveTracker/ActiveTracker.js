@@ -4,33 +4,42 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
 import TrackerInfo from '../../components/TrackerInfo/TrackerInfo';
+import TrackingList from '../../components/TrackingsList/TrackingsList';
 import trackingsProp from '../../propTypes/trackings';
 import trackersProp from '../../propTypes/trackers';
 
-import selectTracker from '../../actions/selectTracker';
+import loadTracker from '../../actions/loadTracker';
 import loadTrackings from '../../actions/loadTrackings';
 
 class ActiveTracker extends React.Component {
   componentDidMount() {
     this.props.loadTrackings(this.props.match.params.id);
-    this.props.selectTracker(this.props.match.params.id);
+    this.props.loadTracker(this.props.match.params.id);
   }
 
   render() {
-    if (this.props.error) {
-      return <div>Error! {this.props.error.message}</div>;
-    }
-    if (this.props.loading) {
-      return <div>Loading...</div>;
-    }
-
-    return <TrackerInfo trackings={this.props.trackings} tracker={this.props.tracker} />;
+    return (
+      <div>
+        <TrackerInfo
+          loading={this.props.loadingTracker}
+          error={this.props.errorTracker}
+          tracker={this.props.tracker}
+        />
+        <TrackingList
+          trackings={this.props.trackings}
+          error={this.props.errorTrackings}
+          loading={this.props.loadingTrackings}
+        />
+      </div>
+    );
   }
 }
 
 ActiveTracker.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  loadingTracker: PropTypes.bool.isRequired,
+  loadingTrackings: PropTypes.bool.isRequired,
+  errorTracker: PropTypes.bool.isRequired,
+  errorTrackings: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -41,7 +50,7 @@ ActiveTracker.propTypes = {
     PropTypes.array,
   ]).isRequired,
   loadTrackings: PropTypes.func.isRequired,
-  selectTracker: PropTypes.func.isRequired,
+  loadTracker: PropTypes.func.isRequired,
   tracker: PropTypes.oneOfType([
     PropTypes.shape(trackersProp),
     PropTypes.shape(),
@@ -50,14 +59,17 @@ ActiveTracker.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   loadTrackings: id => dispatch(loadTrackings(id)),
-  selectTracker: id => dispatch(selectTracker(id)),
+  loadTracker: id => dispatch(loadTracker(id)),
 });
 
 const mapStateToProps = state => ({
-  trackings: state.trackers.activeTrackings.trackings,
   tracker: state.trackers.activeTracker.tracker,
+  trackings: state.trackers.activeTrackings.trackings,
+  loadingTracker: state.trackers.activeTracker.loading,
+  loadingTrackings: state.trackers.activeTrackings.loading,
   loading: state.trackers.activeTracker.loading,
-  error: state.trackers.activeTracker.error,
+  errorTracker: state.trackers.activeTracker.error,
+  errorTrackings: state.trackers.activeTrackings.error,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ActiveTracker));

@@ -1,7 +1,7 @@
 import * as constants from '../lib/constants';
 // LOAD TRACKERS
 
-// TODO on all START do i need the paramter ? 
+// TODO on all START do i need the paramter ?
 
 export const startLoadTrackers = () => ({
   type: constants.LOAD_TRACKERS.START,

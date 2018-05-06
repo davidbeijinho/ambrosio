@@ -90,7 +90,11 @@ class AddNewTracker extends React.Component {
 
             <div className="field">
               <div className="control">
-                <ButtonPrimary handleClick={this.handleSubmit} disabled={this.props.submiting} >Submit</ButtonPrimary>
+                <ButtonPrimary
+                  handleClick={this.handleSubmit}
+                  disabled={this.props.submiting}
+                >Submit
+                </ButtonPrimary>
               </div>
             </div>
             <Loader visible={this.props.submiting} />
